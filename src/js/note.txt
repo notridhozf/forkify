@@ -1,0 +1,58 @@
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+////////// How controlSearchResults work? //////////
+
+- it has to be init from searchView handler that listening a "submit" event;
+- the handler need to have handler() in the of the method so it can run controlSearchResults. 
+ex in init => searchView.addHandlerSearchResults(controlSearchResults);
+- this is a async function because u need to wait for data from model;
+- first you need get search query by selecting '.search__field' value;
+- then you need to pass the query to model function;
+- function in the model is async function. you need to keep query on state.search.query then need to getJSON;
+- you will get bunch of arrays from the query;
+- save the result on state.search.results and map the recipes;
+- before render the result, you need to have function that provide pages => getSearchResultPage = (page) => {};
+- render with resultsView with data you get, showed data from page 1;
+- render the paginationView with data model.state.search;
+
+
+
+////////// How controlPagination work? //////////
+
+- init from paginationView handler that listened click event.
+you need btn = e.target.closest('.btn--inline') and put guardclause;
+- goToPage = +btn.dataset.goto then u need put this on handler.
+dataset.goto contain the page that u target;
+- then render with resultsView with data on the spesific page;
+- render paginationView again;
+
+
+
+////////// How controlServings work? //////////
+
+- init from recipeView handler that listened click event on closest '.btn--update--servings';
+- make an object { updateTo } = btn.dataset then run with handler. dont forget to convert to number with +updateTo ;
+- controlServings need newServings input and use model function;
+- on this function you need to map through each ingredients then count the new ingredient quantity from the custom newServings. put the new serving data in state.recipe.servings;
+- pass the recipe data with recipeView.update, this one will manipulate DOM;
+- first the update() will generateMarkup and store to variable;
+- select all DOM and create newDOM with createRange() and createContextualFragment(newMarkup), and store to newElements.
+this variable must convert to array;
+- then create curElements by all selecting _parentElement and convert to array;
+- loop on newElements to see is there any different between current and new element, after that you need change TEXT and ATTRIBUTES for DOM Manipulate;
+- update with new element if there is different;
+- update with new attribute if there is different with looping through newEl array then setAttribute to curEl;
+
+
+
+////////// How controlAddBookmark work? //////////
+
+- init from recipeView handler that listened click event;
+- add or remove bookmark with if else in model function;
+- make sure you create state.bookmarks then push the recipe input to that array.
+- before add bookmarks, you have to edit loadRecipe that checking if there is any
+bookmarked recipe and put boolean properties;
+- change .bookmarked to true to add and vice versa;
+- update the recipeView;
+- render the bookmarksView with .bookmarked input;
