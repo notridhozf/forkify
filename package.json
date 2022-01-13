@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/notridhozf/forkify#readme",
   "devDependencies": {
+    "@parcel/transformer-sass": "^2.2.0",
     "parcel": "^2.2.0"
   },
   "dependencies": {
