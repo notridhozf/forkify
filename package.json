@@ -1,21 +1,29 @@
 {
   "name": "forkify",
   "version": "1.0.0",
-  "description": "Recipe application",
+  "description": "Recipe application with custom recipe uploads.",
   "default": "index.html",
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html --dist-dir ./dist"
   },
-  "author": "Ridho Zul Fakhri",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/notridhozf/forkify.git"
+  },
+  "author": "Ridho Zul Fakhiri",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/notridhozf/forkify/issues"
+  },
+  "homepage": "https://github.com/notridhozf/forkify#readme",
   "devDependencies": {
-    "parcel": "^2.0.0-beta.1",
-    "sass": "^1.26.10"
+    "parcel": "^2.2.0"
   },
   "dependencies": {
-    "core-js": "^3.6.5",
+    "core-js": "^3.20.2",
     "fractional": "^1.0.0",
-    "regenerator-runtime": "^0.13.7"
+    "regenerator-runtime": "^0.13.9",
+    "sass": "^1.48.0"
   }
 }
