@@ -2,19 +2,19 @@
   "name": "forkify",
   "version": "1.0.0",
   "description": "Recipe application",
-  "default": "./src/js/controller.js",
+  "default": "index.html",
   "scripts": {
-    "start": "parcel ./src/js/controller.js",
-    "build": "parcel build ./src/js/controller.js --dist-dir ./dist"
+    "start": "parcel index.html",
+    "build": "parcel build index.html --dist-dir ./dist"
   },
   "author": "Ridho Zul Fakhri",
   "license": "ISC",
   "dependencies": {
-    "fractional": "^1.0.0",
-    "parcel": "^2.2.0"
+    "fractional": "^1.0.0"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.2.0",
+    "parcel": "^2.2.0",
     "sass": "^1.26.10"
   }
 }
