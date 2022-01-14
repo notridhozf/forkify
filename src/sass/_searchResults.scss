@@ -9,9 +9,16 @@
   margin-bottom: 2rem;
 }
 
+.jc-center {
+  justify-content: center;
+}
+
 .pagination {
   margin-top: auto;
-  padding: 0 3.5rem;
+  padding: 0 2rem;
+  display: flex;
+
+  // display: inline-block;
 
   &::after {
     content: '';
@@ -20,11 +27,28 @@
   }
 
   &__btn {
-    &--prev {
-      float: left;
+    &--first {
+      margin-left: 259px;
     }
+
+    &--last {
+      margin-right: 259px;
+    }
+
+    &--prev {
+      // float: left;
+      margin-right: 45px;
+    }
+
+    &--active {
+      background-color: tomato;
+      color: white;
+      pointer-events: none;
+    }
+
     &--next {
-      float: right;
+      // float: right;
+      margin-left: 45px;
     }
   }
 }

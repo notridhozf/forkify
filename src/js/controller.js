@@ -1,11 +1,12 @@
 import * as model from './model.js';
-import { MODAL_CLOSE } from './config.js';
+import { MODAL_CLOSE, HOMEPAGE } from './config.js';
 import recipeView from './views/recipeView.js';
 import searchView from './views/searchView.js';
 import resultsView from './views/resultsView.js';
 import paginationView from './views/paginationView.js';
 import bookmarksView from './views/bookmarksView.js';
 import addRecipeView from './views/addRecipeView.js';
+import homepageView from './views/homepageView.js';
 
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
@@ -120,6 +121,11 @@ const controlAddRecipe = async newRecipe => {
   }
 };
 
+const controlHomepage = () => {
+  window.location.href = `${HOMEPAGE}`;
+  // window.history.pushState(null, '', 'index.html');
+};
+
 const init = () => {
   bookmarksView.addHandlerRender(controlBookmarks);
   recipeView.addHandlerRender(controlRecipe);
@@ -128,6 +134,7 @@ const init = () => {
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addHandlerClick(controlPagination);
   addRecipeView.addHandlerUpload(controlAddRecipe);
+  homepageView.addHandlerHomepage(controlHomepage);
 };
 init();
 
